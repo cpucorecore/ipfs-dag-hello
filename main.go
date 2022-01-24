@@ -28,7 +28,7 @@ func main() {
 		return
 	}
 
-	chunkerString := "size-262144"
+	chunkerString := "size-1048576"
 	splitter, err := chunker.FromString(file, chunkerString)
 	if err != nil {
 		log.Errorf("create splitter err: %s", err.Error())
@@ -72,7 +72,7 @@ func main() {
 	tree := treeprint.NewWithRoot(node)
 	walkNode(ctx, dagService, tree, node)
 
-	log.Info(tree.String())
+	log.Infof("\n%s\n", tree.String())
 }
 
 func walkNode(ctx context.Context, dagService *DAGService, tree treeprint.Tree, node ipld.Node) {
